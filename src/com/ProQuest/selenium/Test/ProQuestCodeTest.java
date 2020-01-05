@@ -1,28 +1,18 @@
 package com.ProQuest.selenium.Test;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.PageLoadStrategy;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import org.openqa.selenium.Keys;
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-
-import org.apache.commons.io.FileUtils;
 
 import com.ProQuest.selenium.Utils.CommonUtils;
 import com.ProQuest.selenium.Utils.Constants;
@@ -31,9 +21,10 @@ public class ProQuestCodeTest {
 
 	WebDriver driver;
 
+	@BeforeMethod
 	@BeforeTest
 	public void setUp() {
-		// Setting path variable for chrome driver
+		// Setting path variable for chrome driver. If path is set already in Environment variable no need of the below line
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Aravind\\Learning\\Selenium\\Softwares\\webdrivers\\chromedriver.exe");
 		
@@ -45,6 +36,7 @@ public class ProQuestCodeTest {
 	}
 
 	
+	@AfterMethod
 	@AfterTest
 	public void tearDown() {
 		// Terminate the driver instance
